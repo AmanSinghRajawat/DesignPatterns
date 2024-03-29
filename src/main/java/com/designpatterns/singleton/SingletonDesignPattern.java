@@ -4,8 +4,11 @@ package com.designpatterns.singleton;
 
 public class SingletonDesignPattern {
 
-	// this static object will be return from static method 'm1()'.
-	static SingletonDesignPattern s = new SingletonDesignPattern();
+	static SingletonDesignPattern s = null; // Lazy Initialization
+
+	public static void main(String[] args) {
+
+	}
 
 	// private constructor
 	private SingletonDesignPattern() {
@@ -14,6 +17,9 @@ public class SingletonDesignPattern {
 
 	// static method to return the 'SingletonDesignPattern' Class static object 's'.
 	static SingletonDesignPattern m1() {
+		if (s == null) {
+			s = new SingletonDesignPattern();
+		}
 		return s;
 	}
 }
